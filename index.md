@@ -9,7 +9,6 @@
 
 - [Introduction](#introduction)
 - [Usage](#usage)
-- [Contributors](#contributors)
 - [Maintainers](#maintainers)
 - [References](#references)
 - [License](#license)
@@ -17,11 +16,11 @@
 <!-- /TOC -->
 
 
-## Introduction
+### Introduction
 
 This repository shows a quick method to convert the dataset in the Darknet format into the JSON-based format required by Supervisely annotation tool in python language. Check it out!
 
-## Usage
+### Usage
 
 Clone the repository to your local path:
 
@@ -64,27 +63,13 @@ Results:
 ```
 
 
-## Contributors
-
-<table>
-    <tbody>
-        <tr>
-            <td>
-                <a href="https://github.com/jinhangzhu/darknet-to-supervisely/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=jinhangzhu/darknet-to-supervisely" />
-</a>
-        </tr>
-    </tbody>
-</table>
-
-
-## Maintainers
+### Maintainers
 
 [Jinhang Zhu](https://github.com/JinhangZhu)
 
 
 
-## References
+### References
 
 - https://docs.supervise.ly/data-organization/import-export/supervisely-format
 
@@ -92,6 +77,6 @@ Results:
 
 
 
-## License
+### License
 
 - [MIT](https://opensource.org/licenses/MIT)
