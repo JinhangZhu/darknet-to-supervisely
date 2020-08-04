@@ -1,37 +1,92 @@
-## Welcome to GitHub Pages
+<h2 align="center">darknet-to-supervisely</h2>
+<p align="center"><b>Conversion of Dataset from Darknet Format into Supervisely Format via Python</b></p>
 
-You can use the [editor on GitHub](https://github.com/JinhangZhu/darknet-to-supervisely/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+<br>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+<h2>Table of Contents</h2>
 
-### Markdown
+<!-- TOC -->
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- [Introduction](#introduction)
+- [Usage](#usage)
+- [Contributors](#contributors)
+- [Maintainers](#maintainers)
+- [References](#references)
+- [License](#license)
 
-```markdown
-Syntax highlighted code block
+<!-- /TOC -->
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+## Introduction
 
-1. Numbered
-2. List
+This repository shows a quick method to convert the dataset in the Darknet format into the JSON-based format required by Supervisely annotation tool in python language. Check it out!
 
-**Bold** and _Italic_ and `Code` text
+## Usage
 
-[Link](url) and ![Image](src)
+Clone the repository to your local path:
+
+```bash
+git clone https://github.com/JinhangZhu/darknet-to-supervisely.git
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Copy the `convert.py` file into your local folder where the darknet dataset is located. Open the terminal on Linux or command window in Windows and run command like:
 
-### Jekyll Themes
+```bash
+python convert.py -o ./ego-hand -p ./new-project -d new-set -l left_hand -l right_hand
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/JinhangZhu/darknet-to-supervisely/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+help:
 
-### Support or Contact
+- `-o`, `--origin`: The name of original data downloaded from Supervisely. `type=str`
+- `-p`, `--project`: The name of the output dataset folder. `type=str`
+- `-d`, `--dataset`: The name of the meta file of the data. `type=str`
+- `-l`, `--label`: Whether to randomly split image set. `action='append'`
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+For example, I have a folder called: "ego-hand" in the current path, I want to create a dataset folder called "epichands" under the directory of project "epichhands", with labels: `left_hand`, `right_hand`. I run:
+
+```bash
+python convert.py -o ./ego-hand -p ./epichands -d epichands -l left_hand -l right_hand
+Namespace(dataset='epichands', label=['left_hand', 'right_hand'], origin='./ego-hand', project='./epichands')
+Images:   3%|██▌                                                                             | 415/12846 [00:13<06:29, 31.90it/s]
+```
+
+Results:
+
+```
+└───datasets                                                                   		
+		├───ego-hand
+		├───epichhands
+				├───meta.json
+				├───ann
+					├───xxx.jpg.json
+				├───img
+					├───xxx.jpg
+```
+
+## Contributors
+
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <a href="https://github.com/jinhangzhu/darknet-to-supervisely/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=jinhangzhu/darknet-to-supervisely" />
+</a>
+        </tr>
+    </tbody>
+</table>
+
+
+## Maintainers
+
+[Jinhang Zhu](https://github.com/JinhangZhu)
+
+## References
+
+- https://docs.supervise.ly/data-organization/import-export/supervisely-format
+
+- https://docs.supervise.ly/data-organization/import-export/upload
+
+## License
+
+- [MIT](https://opensource.org/licenses/MIT)
